@@ -1,0 +1,56 @@
+<!-- 
+{{sucess}}
+{{error}}
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Fullname</th>
+      <th>Email</th>
+      <th>Number</th>
+      <th>Password</th>
+      <th>Image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let user of user;let i= index;'>
+      <td>
+        {{i+1}}
+      </td>
+    
+      <td>
+        {{user.fname}}
+      </td>
+      <td>
+        {{user.email}}
+      </td>
+      <td>
+        {{user.number}}
+      </td>
+      <td>
+        {{user.password}}
+      </td>
+      <td>
+        <img src="{{BASE_URL}}{{user.image}}" style="height: 100px;width: 100px;">
+      </td>
+    </tr>
+  </tbody>
+</table>  
+
+<form #f="ngForm" enctype="multipart/form-data" (ngSubmit)="RegisterData(f)">
+    <input type="text" class="form-control" [(ngModel)]="register.fname" name="fname" required>
+    <br/>
+    <input type="number" name="number" [(ngModel)]="register.number" placeholder="enter Mobile.." />
+    <br/>
+    <input type="email" name="email" [(ngModel)]="register.email" placeholder="enter Email.." />
+    <br/>
+    <input type="password" name="password" [(ngModel)]="register.password" placeholder="enter Password.." />
+    <br/>
+    <input type="file" name="image" #myInput (change)="onchangeFile($event)" placeholder="enter image" />
+    <br/>
+    <button type="submit" class="btn btn-success">Register</button>
+  </form> -->
+
+  <router-outlet></router-outlet>

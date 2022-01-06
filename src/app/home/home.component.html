@@ -1,0 +1,20 @@
+
+
+<div class="container">
+    <div class="row g-2">
+      <div class="col-6">
+    
+         <ng-template *ngFor="let user of user;let i = index">
+            <h1 *ngIf="user._id == admin">
+                i am {{user.fname}}
+            </h1>
+        </ng-template>      
+       
+      
+      </div>
+      <div class="col-6">
+        <button type="button" class=" btn btn-warning" routerLink="/table">VIEW DATA TABLE</button> 
+      </div>
+    </div>
+  </div>
+

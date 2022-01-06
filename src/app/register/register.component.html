@@ -1,0 +1,75 @@
+
+{{sucess}}
+{{error}}
+<section class="vh-100 bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+  
+                <form #f="ngForm" enctype="multipart/form-data" (ngSubmit)="f.form.valid && RegisterData(f)">
+  
+                  <div class="form-outline mb-4">
+                      <!-- ..................NAME FIELDS....... -->
+                    <label class="form-label" for="form3Example1cg">Your Name</label>
+                    <input   required #name1="ngModel" type="text" [(ngModel)]="register.fname" name="fname" placeholder="Enter Name" class="form-control form-control-lg" />
+                    <br>
+                    <span *ngIf="name1.touched && name1.invalid" style="color: red;">Please enter name</span>
+                       <!-- ..............end....................... -->
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <!-- ......................number fields...... -->
+                  <input type="number" name="number" [(ngModel)]="register.number" placeholder="Enter Mobile" class="form-control form-control-lg" />
+                  <!-- .........................end.................. -->
+
+                  <label class="form-label" for="form3Example3cg">Your Mobile Number</label>
+                </div>
+  
+                  <div class="form-outline mb-4">
+                      <!-- ......................email fields...... -->
+                    <input type="email" name="email" [(ngModel)]="register.email" placeholder="Enter Email" class="form-control form-control-lg" />
+                    <!-- .........................end.................. -->
+
+                    <label class="form-label" for="form3Example3cg">Your Email</label>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                      <!-- .............. password ....................... -->
+                    <input type="password" name="password" [(ngModel)]="register.password" placeholder="Enter Password" class="form-control form-control-lg" />
+                    <!-- .................end........................... -->
+                    <label class="form-label" for="form3Example4cg">Password</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <!-- .............. password ....................... -->
+                  <input type="file" name="image" #myInput (change)="onchangeFile($event)" placeholder="enter image" class="form-control form-control-lg" />
+                  <!-- .................end........................... -->
+                  <label class="form-label" for="form3Example4cg">Select Image</label>
+                </div>
+  
+                  <!-- <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                  </div> -->
+  
+                 
+  
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  </div>
+  
+                  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/login" class="fw-bold text-body"><u>Login here</u></a></p>
+  
+                </form>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

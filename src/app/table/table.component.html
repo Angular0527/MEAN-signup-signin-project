@@ -1,0 +1,110 @@
+
+{{error}}
+
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form #f="ngForm" enctype="multipart/form-data" (ngSubmit)="inupData(f)">
+
+                <div class="form-outline mb-4">
+                    <!-- ..................NAME FIELDS....... -->
+                  <label class="form-label" for="form3Example1cg">Your Name</label>
+                  <input type="text" [(ngModel)]="udata.fname" name="fname" placeholder="Enter Name" class="form-control form-control-lg" />
+                  <br>
+                  
+                     <!-- ..............end....................... -->
+                </div>
+
+                <div class="form-outline mb-4">
+                  <!-- ......................number fields...... -->
+                <input type="number" name="number" [(ngModel)]="udata.number" placeholder="Enter Mobile" class="form-control form-control-lg" />
+                <!-- .........................end.................. -->
+
+                <label class="form-label" for="form3Example3cg">Your Mobile Number</label>
+              </div>
+
+                <div class="form-outline mb-4">
+                    <!-- ......................email fields...... -->
+                  <input type="email" name="email" [(ngModel)]="udata.email" placeholder="Enter Email" class="form-control form-control-lg" />
+                  <!-- .........................end.................. -->
+
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <!-- .............. password ....................... -->
+                  <input type="password" name="password" [(ngModel)]="udata.password" placeholder="Enter Password" class="form-control form-control-lg" />
+                  <!-- .................end........................... -->
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <!-- .............. password ....................... -->
+                <input type="file" name="image" #myInput (change)="onchangeFile($event)" placeholder="enter image" class="form-control form-control-lg" />
+                <!-- .................end........................... -->
+                <label class="form-label" for="form3Example4cg">Select Image</label>
+              </div>
+
+                <!-- <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                </div> -->
+
+               
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">{{btn}}</button>
+                </div>
+
+                
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">NUMBER</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">PASSWORD</th>
+        <th scope="col">IMAGES</th>
+        <th scope="col">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let user of user;let i= index;'>
+        <th scope="row">{{i+1}}</th>
+        <td>{{user._id}}</td>
+        <td>{{user.fname}}</td>
+        <td>{{user.number}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td>
+            <img src="{{BASE_URL}}{{user.image}}" style="height: 100px;width: 100px;">
+        </td>
+        <td>
+          <button type="button" class=" btn btn-success" (click)="updatedata(user)">Update</button>
+          <button type="button" class=" btn btn-primary" (click)="deleteData(user)">Delete</button>
+
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
